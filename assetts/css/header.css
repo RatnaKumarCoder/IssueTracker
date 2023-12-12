@@ -1,0 +1,17 @@
+#header{
+    height: 10vh !important;
+    width: 100vw !important;
+    background-color: lightslategray !important;
+    text-align: center;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#heading{
+    color: white !important;
+    font-family: 'Times New Roman';
+    font-weight: 600;
+}

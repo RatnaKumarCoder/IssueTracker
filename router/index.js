@@ -1,0 +1,11 @@
+const express=require('express');
+const route=express.Router();
+const home_controller=require('../controller/home_controller');
+const projectController=require('../controller/projectController');
+const issueController=require('../controller/issueController');
+route.get('/',home_controller.home);
+route.post('/addProject',home_controller.addProject);
+route.use('/project',require('./project'));
+route.post('/issue',issueController.getIssue);
+route.post('/issue/filterLabel',issueController.getIssueByLabel);
+module.exports=route;

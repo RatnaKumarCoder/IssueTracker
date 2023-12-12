@@ -1,0 +1,58 @@
+
+<link rel="stylesheet" href="/css/home.css">
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Project Details</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="/addProject" method="post">
+              <div class="input_container">
+                <label for="project_name">Project Name</label>
+                <input class="m-2" id="project_name" type="text" name="name" required>
+                <label for="description">Description</label>
+                <textarea class="m-2" id="description" name="description" rows="6" cols="8"></textarea>
+                <label for="author">Author</label>
+                <input class="m-2" id="author" type="text" name="author" required>
+              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+
+<main id="main-section" class="px-2">
+  <div class='d-flex justify-content-center my-2'>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Add New Project
+    </button>
+  </div>
+  <hr>
+  <div id="displayProjects">
+    <h2>Projects</h2>
+    <%for(let project of projects){%>
+        <div class="single-project my-2 shadow-lg px-2 py-2">
+          <a href="/project/<%= project._id %>">
+            <div class="project-details">
+              <h5> Project Name:  <%= project.name %>  </h5>
+              <p id="desc"> Project Description: <%= project.description %> </p>
+              <p>Project Author: <%= project.author %>    </p>
+            </div>
+          </a>
+        </div>
+    <%}%>
+  </div>
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
