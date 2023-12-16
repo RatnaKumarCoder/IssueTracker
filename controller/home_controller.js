@@ -1,5 +1,6 @@
 const project=require('../models/project');
 
+//function to render projects in home page
 module.exports.home=async function(req,res){
     let projects=await project.find({});
     res.render('home',{
@@ -8,6 +9,7 @@ module.exports.home=async function(req,res){
     });
 }
 
+//function to add projects 
 module.exports.addProject=function(req,res){
     try{
      project.create({

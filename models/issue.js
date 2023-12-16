@@ -1,5 +1,6 @@
 const mongoose=require('mongoose');
 
+//defining a database schema for issue
 const issueSchema=new mongoose.Schema({
     project:{
         type: mongoose.Schema.ObjectId,

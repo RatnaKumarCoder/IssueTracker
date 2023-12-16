@@ -1,5 +1,6 @@
 const mongoose=require('mongoose');
 
+//defining a database schema for project
 const projectSchema=new mongoose.Schema({
     name:{
         type: String,

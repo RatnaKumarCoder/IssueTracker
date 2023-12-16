@@ -1,6 +1,7 @@
 const project=require('../models/project');
 const issue=require('../models/issue');
 
+//function to create issues
 module.exports.createIssue=async function(req,res){
     let proj=project.findById(req.params.id);
     try{
@@ -21,6 +22,7 @@ catch(err){
 }
 }
 
+//function to get issues
 module.exports.getIssue=async function(req,res){
     try{
         let issue1=await issue.find({issue_name: req.body.search}).populate('project');
@@ -50,15 +52,22 @@ module.exports.getIssue=async function(req,res){
 
 }
 
+//function to get issues by label
 module.exports.getIssueByLabel=async function(req,res){
     try{
     let issue1;
     let arr=[];
     console.log(req.body.label);
-    for(let i of req.body.label){
-        issue1=await issue.find({label: i}).populate('project');
-        arr.push(issue1);
+    if(req.body.label!=[]){
+        issue1=await issue.find({label: req.body.label }).populate('project');
     }
+    else{
+        for(let i of req.body.label){
+            issue1=await issue.find({label: i}).populate('project');
+        }
+    }
+
+    arr.push(issue1);
     console.log(arr);
     if(req.xhr){
         return res.status(200).json({

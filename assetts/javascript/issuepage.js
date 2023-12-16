@@ -1,6 +1,7 @@
 {
     let labelProjects=document.getElementById('titledescription');
     let FilteredProjects=document.getElementById('displayProjectsAll');
+
     //method to submit the form data for new post using AJAX
     let getIssue=function(){
         let Issue=$('#issueform');
@@ -40,7 +41,7 @@
         
     }
 
-
+    //method to get issues by label using AJAX Jquery
     let getIssuebylabel=function(){
         let Issue=$('#labelForm');
         Issue.submit(function(e){
@@ -59,6 +60,7 @@
                             $('#displayProjectsAll>div').prepend(newIssue)
                         }
                     }
+                    
                 },
                 error: function(error){
                     console.log(error.responseText);
@@ -70,6 +72,7 @@
 
     getIssuebylabel();
 
+    //method to give html data to html container where the html page renders
     let newIssueDom=function(issue){  
         console.log(issue);
         return $(`

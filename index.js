@@ -4,11 +4,11 @@ const app=express();
 
 const port=8000;
 
+//loading the mongoose db connection
 const db=require('./config/mongoose');
 
 //configuring views
 app.set('view engine','ejs');
-
 app.set('views','./views');
 
 //using a express middleware to serve static files 
@@ -21,6 +21,7 @@ app.use(express.urlencoded());
 //configuring layouts
 const expressLayouts=require('express-ejs-layouts');
 app.use(expressLayouts);
+
 //extracting the style and script links from main content and placing them in header
 app.set('layout extractStyles',true);
 app.set('layout extractScripts',true);
