@@ -19,6 +19,6 @@ views: HTML template files (EJS)
 Technologies and Tools:
 
 Run-time Environment: Node.js
-languages: Javascript, HTML, CSS
+languages: Javascript, HTML, CSS, Ajax, JQuery
 Framework: Express
 Libraries: nodemon, EJS, Mongoose, express-ejs-layout
